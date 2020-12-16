@@ -3,17 +3,7 @@
     
     <%= form_with(model:task, local: true) do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
-    
-      <!--<% if task.errors.any? %>-->
-      <!--  <div id="error_explanation" class="alert alert-warning">-->
-      <!--    <ul class="mb-0">-->
-      <!--      <% task.errors.full_messages.each do |msg| %>-->
-      <!--        <li><%= msg %></li>-->
-      <!--      <% end %>-->
-      <!--    </ul>-->
-      <!--  </div>-->
-      <!--<% end %>-->
-    
+
       <div class="form-group">
         <%= f.label :status, 'ステータス' %>
         <%= f.text_field :status, class: 'form-control' %>
