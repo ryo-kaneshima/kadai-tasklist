@@ -1,14 +1,12 @@
 class TasksController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
-  before_action :set_task, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:show, :edit, :update,:destroy]
     
   def index
     @tasks = current_user.tasks.order(id: :desc).page(params[:page]).per(3)
   end
   
   def show
-    # @task = Task.find(params[:id])
   end
 
   def new
@@ -28,12 +26,9 @@ class TasksController < ApplicationController
   end
 
   def edit
-    # @task = Task.find(params[:id])
   end
 
   def update
-    # @task = Task.find(params[:id])
-  
     if @task.update(task_params)
       flash[:success] = 'タスクを編集しました'
       redirect_to @task
@@ -51,10 +46,6 @@ class TasksController < ApplicationController
   
   
   private
-  
-  def set_task
-    @task = Task.find(params[:id])
-  end
   
     # Strong Parameter
   def task_params
